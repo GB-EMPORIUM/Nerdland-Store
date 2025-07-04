@@ -12,7 +12,7 @@ function showCategory(category) {
         if (snapshot.exists()) {
             snapshot.forEach(child => {
                 const product = child.val();
-                container.innerHTML += `
+                const productHTML = `
                     <div class="product">
                         <img src="${product.imageUrl}" alt="${product.name}" />
                         <h3>${product.name}</h3>
@@ -21,14 +21,15 @@ function showCategory(category) {
                         <button 
                             class="snipcart-add-item"
                             data-item-id="${child.key}"
-                            data-item-name="${product.name}"
+                            data-item-name="${product.name.replace(/"/g, '&quot;')}"
                             data-item-price="${product.price}"
-                            data-item-url="https://snipcart.com" <!-- Fake URL valido -->
-                            data-item-description="${product.description}">
+                            data-item-url="https://snipcart.com"
+                            data-item-description="${product.description.replace(/"/g, '&quot;')}">
                             Aggiungi al carrello
                         </button>
                     </div>
                 `;
+                container.insertAdjacentHTML("beforeend", productHTML);
             });
         } else {
             container.innerHTML = "<p>Nessun prodotto in questa categoria.</p>";
