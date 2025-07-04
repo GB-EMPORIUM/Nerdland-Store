@@ -23,7 +23,7 @@ function showCategory(category) {
                             data-item-id="${child.key}"
                             data-item-name="${product.name}"
                             data-item-price="${product.price}"
-                            data-item-url="/"
+                            data-item-url="/product/${child.key}"
                             data-item-description="${product.description}">
                             Aggiungi al carrello
                         </button>
