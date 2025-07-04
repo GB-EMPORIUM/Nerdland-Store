@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Negozio Online - Snipcart + Firebase</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- Hamburger menu -->
+        <div id="hamburger" onclick="toggleMenu()">☰</div>
+
+        <!-- Titolo/logo -->
+        <div class="logo">
+            <h1>🌟 Il Mio Negozio</h1>
+        </div>
+
+        <!-- Carrello -->
+        <button class="snipcart-checkout">Carrello (<span class="snipcart-items-count">0</span>)</button>
+
+        <!-- Menu nascosto -->
+        <nav id="navMenu" class="hidden">
+            <ul id="categoryList">
+                <li>Nessuna categoria disponibile</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section id="welcome">
+            <h2>Benvenuto nel mio negozio</h2>
+            <p>Scegli una categoria dal menu per vedere i prodotti</p>
+        </section>
+        <section id="productsContainer" class="products"></section>
+    </main>
+
+    <!-- Snipcart -->
+    <script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-api-key="MWE0OGE4ZjktZWRiOS00NzlhLWI5YmUtYTAyY2FkMDVhZmE3NjM4ODcyMTY5NDAwMzY1MjE4"></div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="firebase.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

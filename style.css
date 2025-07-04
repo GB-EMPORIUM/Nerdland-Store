@@ -1,0 +1,219 @@
+/* RESET E BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+}
+
+#hamburger {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.logo {
+    text-align: center;
+    flex: 1;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #fff;
+}
+
+.snipcart-checkout {
+    background: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.snipcart-checkout:hover {
+    background: #e55b50;
+}
+
+/* MENU HAMBURGER */
+#navMenu {
+    background: #444;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: none;
+    z-index: 1000;
+}
+
+#navMenu.show {
+    display: block;
+}
+
+#navMenu ul {
+    list-style: none;
+}
+
+#navMenu ul li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #555;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+#navMenu ul li:hover {
+    background: #555;
+}
+
+/* WELCOME SECTION */
+#welcome {
+    text-align: center;
+    margin: 60px 20px;
+}
+
+#welcome h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#welcome p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* PRODOTTI */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.03);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.product h3 {
+    font-size: 1.3em;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 10px;
+}
+
+.product button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product button:hover {
+    background: #0056b3;
+}
+
+/* FORM ADMIN (admin.html) */
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #218838;
+}
+
+#status {
+    text-align: center;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    #navMenu ul li {
+        font-size: 1.2em;
+    }
+}

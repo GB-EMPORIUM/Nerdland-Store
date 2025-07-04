@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pannello Admin - Aggiungi Prodotti</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>🎛 Pannello Admin</h1>
+    </header>
+
+    <main>
+        <form id="productForm">
+            <label for="name">Nome prodotto</label>
+            <input type="text" id="name" required />
+
+            <label for="category">Categoria</label>
+            <input type="text" id="category" required placeholder="Esempio: magliette" />
+
+            <label for="price">Prezzo (€)</label>
+            <input type="number" id="price" required step="0.01" />
+
+            <label for="description">Descrizione</label>
+            <textarea id="description" required></textarea>
+
+            <label for="imageUrl">Link immagine</label>
+            <input type="url" id="imageUrl" required placeholder="https://i.imgur.com/tuoimmagine.jpg" />
+
+            <button type="submit">Aggiungi Prodotto</button>
+        </form>
+        <p id="status"></p>
+    </main>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="firebase.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
