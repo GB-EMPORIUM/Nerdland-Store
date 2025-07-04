@@ -12,24 +12,47 @@ function showCategory(category) {
         if (snapshot.exists()) {
             snapshot.forEach(child => {
                 const product = child.val();
-                const productHTML = `
-                    <div class="product">
-                        <img src="${product.imageUrl}" alt="${product.name}" />
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <p>€${product.price.toFixed(2)}</p>
-                        <button 
-                            class="snipcart-add-item"
-                            data-item-id="${child.key}"
-                            data-item-name="${product.name.replace(/"/g, '&quot;')}"
-                            data-item-price="${product.price}"
-                            data-item-url="https://snipcart.com"
-                            data-item-description="${product.description.replace(/"/g, '&quot;')}">
-                            Aggiungi al carrello
-                        </button>
-                    </div>
-                `;
-                container.insertAdjacentHTML("beforeend", productHTML);
+
+                // CREA IL CONTENITORE DEL PRODOTTO
+                const productDiv = document.createElement("div");
+                productDiv.className = "product";
+
+                // Immagine
+                const img = document.createElement("img");
+                img.src = product.imageUrl;
+                img.alt = product.name;
+
+                // Nome prodotto
+                const title = document.createElement("h3");
+                title.textContent = product.name;
+
+                // Descrizione
+                const desc = document.createElement("p");
+                desc.textContent = product.description;
+
+                // Prezzo
+                const price = document.createElement("p");
+                price.textContent = `€${product.price.toFixed(2)}`;
+
+                // Bottone Snipcart
+                const button = document.createElement("button");
+                button.className = "snipcart-add-item";
+                button.textContent = "Aggiungi al carrello";
+                button.setAttribute("data-item-id", child.key);
+                button.setAttribute("data-item-name", product.name);
+                button.setAttribute("data-item-price", product.price);
+                button.setAttribute("data-item-url", "https://snipcart.com"); // URL finto valido
+                button.setAttribute("data-item-description", product.description);
+
+                // Aggiungi tutto al contenitore
+                productDiv.appendChild(img);
+                productDiv.appendChild(title);
+                productDiv.appendChild(desc);
+                productDiv.appendChild(price);
+                productDiv.appendChild(button);
+
+                // Inserisci nel container
+                container.appendChild(productDiv);
             });
         } else {
             container.innerHTML = "<p>Nessun prodotto in questa categoria.</p>";
@@ -46,7 +69,12 @@ db.ref("products").once("value", snapshot => {
     if (snapshot.exists()) {
         snapshot.forEach(child => {
             const category = child.key;
-            categoryList.innerHTML += `<li onclick="showCategory('${category}')">${category}</li>`;
+            const li = document.createElement("li");
+            li.textContent = category;
+            li.onclick = function () {
+                showCategory(category);
+            };
+            categoryList.appendChild(li);
         });
     } else {
         categoryList.innerHTML = "<li>Nessuna categoria disponibile</li>";
