@@ -23,7 +23,7 @@ function showCategory(category) {
                             data-item-id="${child.key}"
                             data-item-name="${product.name}"
                             data-item-price="${product.price}"
-                            data-item-url="https://gb-emporium.github.io/Nerdland-Store/index.html"
+                            data-item-url="https://snipcart.com" <!-- Fake URL valido -->
                             data-item-description="${product.description}">
                             Aggiungi al carrello
                         </button>
